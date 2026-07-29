@@ -1,0 +1,82 @@
+{
+  "$schema": "crop-growth.schema.json",
+  "description": "作物生长周期配置（现实时间，无季节限制）",
+  "version": "2.0.0",
+  "timingModel": {
+    "type": "realtime",
+    "offlineGrowth": true,
+    "seasonSystem": false,
+    "plantAnytime": true,
+    "harvestWhenMature": true,
+    "matureCropExpiry": null
+  },
+  "pacePresets": {
+    "casual": { "growthMultiplier": 1.5, "label": "休闲" },
+    "standard": { "growthMultiplier": 1.0, "label": "标准" },
+    "immersive": { "growthMultiplier": 0.75, "label": "沉浸" }
+  },
+  "crops": [
+    {
+      "id": "potato",
+      "tier": 1,
+      "growthMinutes": 60,
+      "growthMinutesMin": 45,
+      "landRequirement": "flat",
+      "waterBonus": 0.1,
+      "fertilizerBonus": 0.15
+    },
+    {
+      "id": "radish",
+      "tier": 1,
+      "growthMinutes": 60,
+      "growthMinutesMin": 45,
+      "landRequirement": "flat"
+    },
+    {
+      "id": "wheat",
+      "tier": 2,
+      "growthMinutes": 180,
+      "growthMinutesMin": 120,
+      "landRequirement": "flat",
+      "fertilizerRecommended": true
+    },
+    {
+      "id": "corn",
+      "tier": 2,
+      "growthMinutes": 180,
+      "growthMinutesMin": 120,
+      "landRequirement": "flat"
+    },
+    {
+      "id": "cotton",
+      "tier": 3,
+      "growthMinutes": 480,
+      "growthMinutesMin": 360,
+      "landRequirement": "fertilized"
+    },
+    {
+      "id": "herb",
+      "tier": 3,
+      "growthMinutes": 480,
+      "growthMinutesMin": 360,
+      "landRequirement": "fertilized"
+    },
+    {
+      "id": "rare_herb",
+      "tier": 4,
+      "growthMinutes": 1080,
+      "growthMinutesMin": 840,
+      "landRequirement": "special",
+      "facilityRequired": "herb_garden"
+    }
+  ],
+  "helpers": {
+    "autoHarvestWorkerEfficiency": 0.8,
+    "dailyWaterReduction": 0.1,
+    "dailyFertilizerReduction": 0.15
+  },
+  "marketRefresh": {
+    "intervalDays": 7,
+    "note": "商队刷新按现实周，与季节无关"
+  }
+}
