@@ -1,0 +1,49 @@
+{
+  "$schema": "materials.schema.json",
+  "version": "1.0.0",
+  "materials": [
+    { "id": "stone", "tier": 0, "tags": ["building"], "basePrice": 2, "stackMax": 99 },
+    { "id": "raw_wood", "tier": 0, "tags": ["building", "fuel"], "basePrice": 2, "stackMax": 99 },
+    { "id": "wild_fiber", "tier": 0, "tags": ["building"], "basePrice": 1, "stackMax": 99 },
+    { "id": "clay", "tier": 0, "tags": ["building", "farm"], "basePrice": 3, "stackMax": 99 },
+    { "id": "copper_ore", "tier": 0, "tags": ["tool"], "basePrice": 6, "stackMax": 50 },
+    { "id": "resin", "tier": 0, "tags": ["consumable"], "basePrice": 8, "stackMax": 50 },
+    { "id": "straw", "tier": 0, "tags": ["fuel", "farm"], "basePrice": 1, "stackMax": 99 },
+    { "id": "vine", "tier": 0, "tags": ["farm"], "basePrice": 1, "stackMax": 99 },
+    { "id": "herb_residue", "tier": 0, "tags": ["farm"], "basePrice": 2, "stackMax": 99 },
+    { "id": "beast_hide", "tier": 0, "tags": ["trade"], "basePrice": 10, "stackMax": 30 },
+    { "id": "beast_bone", "tier": 0, "tags": ["farm"], "basePrice": 5, "stackMax": 30 },
+    { "id": "scrap_metal", "tier": 0, "tags": ["tool"], "basePrice": 4, "stackMax": 30 },
+
+    { "id": "plank", "tier": 1, "tags": ["building"], "basePrice": 6, "stackMax": 50 },
+    { "id": "stone_brick", "tier": 1, "tags": ["building"], "basePrice": 8, "stackMax": 50 },
+    { "id": "hemp_rope", "tier": 1, "tags": ["building"], "basePrice": 10, "stackMax": 50 },
+    { "id": "charcoal", "tier": 1, "tags": ["fuel"], "basePrice": 7, "stackMax": 50 },
+    { "id": "crude_iron", "tier": 1, "tags": ["tool"], "basePrice": 25, "stackMax": 30 },
+
+    { "id": "iron_nail", "tier": 2, "tags": ["building", "tool"], "basePrice": 20, "stackMax": 30 },
+    { "id": "flour", "tier": 2, "tags": ["trade"], "basePrice": 18, "stackMax": 50 },
+    { "id": "rough_cloth", "tier": 2, "tags": ["trade"], "basePrice": 35, "stackMax": 30 },
+    { "id": "basic_fertilizer", "tier": 2, "tags": ["farm", "consumable"], "basePrice": 15, "stackMax": 30 },
+    { "id": "leather", "tier": 2, "tags": ["trade"], "basePrice": 28, "stackMax": 20 },
+
+    { "id": "refined_iron", "tier": 3, "tags": ["tool"], "basePrice": 55, "stackMax": 20 },
+    { "id": "compound_fertilizer", "tier": 3, "tags": ["farm", "consumable"], "basePrice": 40, "stackMax": 20 },
+    { "id": "bread", "tier": 3, "tags": ["trade", "consumable"], "basePrice": 28, "stackMax": 30 },
+    { "id": "basic_potion", "tier": 3, "tags": ["consumable", "trade"], "basePrice": 65, "stackMax": 20 },
+    { "id": "fence_kit", "tier": 3, "tags": ["building", "consumable"], "basePrice": 45, "stackMax": 10 }
+  ],
+  "dumpingPenalty": {
+    "windowDays": 7,
+    "thresholdMultiplier": 3.0,
+    "priceReductionMin": 0.1,
+    "priceReductionMax": 0.25
+  },
+  "reclamationDrops": {
+    "grass": { "wild_fiber": 2, "raw_wood": { "chance": 0.3, "qty": 1 } },
+    "compacted_soil": { "clay": { "chance": 0.5, "qty": 1, "everyNTiles": 2 } },
+    "rocky": { "stone": 3, "copper_ore": { "chance": 0.1, "qty": 1, "zone": "far" } },
+    "root": { "raw_wood": 2, "resin": { "chance": 0.15, "qty": 1 } },
+    "oncePerTile": true
+  }
+}
