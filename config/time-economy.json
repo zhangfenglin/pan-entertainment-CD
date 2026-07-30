@@ -1,21 +1,21 @@
 {
   "$schema": "time-economy.schema.json",
-  "version": "3.0.0",
-  "description": "统一时间锚点：劳动时间槽、生长、合成、经济周期联动",
+  "version": "3.1.0",
+  "description": "统一时间锚点：1 分钟时间槽，劳动/生长/经济周期联动",
   "timeSlot": {
-    "realMinutes": 3,
+    "realMinutes": 1,
     "label": "时间槽",
-    "note": "所有即时劳动（开荒/播种/收割/修理）占用时间槽"
+    "note": "所有即时劳动（开荒/播种/收割/修理/交易）最小冷却单位"
   },
   "gameDay": {
     "timeSlots": 20,
-    "realMinutes": 60,
+    "realMinutes": 20,
     "staminaRestoreOnRest": 100,
-    "note": "可选：每 60 现实分钟或玩家手动「歇息」触发一次游戏日结算"
+    "note": "可选：每 20 现实分钟或玩家手动「歇息」触发一次游戏日结算"
   },
   "stamina": {
     "baseMax": 100,
-    "naturalRegenPer5RealMinutes": 8,
+    "naturalRegenPer2RealMinutes": 6,
     "typicalCostPerSlot": { "min": 10, "max": 18 }
   },
   "laborActions": {
@@ -41,9 +41,9 @@
     "note": "机会成本用于合成净利润估算"
   },
   "growthPauseEvents": {
-    "rain_delay_minutes": 8,
-    "frost_delay_minutes": 15,
-    "drought_pause_minutes": 10
+    "rain_delay_minutes": 3,
+    "frost_delay_minutes": 5,
+    "drought_pause_minutes": 3
   },
   "pacePresets": {
     "casual": { "growthMultiplier": 1.3, "laborStaminaMultiplier": 0.9 },

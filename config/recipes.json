@@ -1,6 +1,6 @@
 {
-  "version": "3.0.0",
-  "description": "材料合成配方（v3 时间联动）",
+  "version": "3.1.0",
+  "description": "材料合成配方（v3.1 · 1 分钟时间槽，合成以槽为单位）",
   "timeUnit": "real_minutes",
   "recipes": [
     {

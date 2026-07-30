@@ -1,6 +1,6 @@
 {
-  "version": "3.0.0",
-  "description": "生活与社群进度（v3 时间联动）",
+  "version": "3.1.0",
+  "description": "生活与社群进度（v3.1 · 1 分钟时间槽）",
   "timeUnit": "real_minutes",
   "housing": [
     {
@@ -18,7 +18,7 @@
       "capacity": 2,
       "comfort": 25,
       "upgradeCost": { "copper": 80, "materials": { "plank": 8, "rope": 4 } },
-      "upgradeMinutes": 15,
+      "upgradeMinutes": 5,
       "maintenanceCostPer48h": { "copper": 15, "materials": { "plank": 2 } }
     },
     {
@@ -27,7 +27,7 @@
       "capacity": 3,
       "comfort": 45,
       "upgradeCost": { "copper": 250, "materials": { "brick": 12, "plank": 6, "nail": 4 } },
-      "upgradeMinutes": 30,
+      "upgradeMinutes": 10,
       "maintenanceCostPer48h": { "copper": 30, "materials": { "brick": 2 } }
     },
     {
@@ -36,7 +36,7 @@
       "capacity": 4,
       "comfort": 70,
       "upgradeCost": { "copper": 800, "materials": { "furniture_part": 4, "fabric": 2, "brick": 8 } },
-      "upgradeMinutes": 60,
+      "upgradeMinutes": 20,
       "maintenanceCostPer48h": { "copper": 50, "materials": { "furniture_part": 1 } }
     },
     {
@@ -45,19 +45,19 @@
       "capacity": 6,
       "comfort": 100,
       "upgradeCost": { "copper": 2500, "materials": { "luxury_furniture": 2, "silk": 2, "brick": 12 } },
-      "upgradeMinutes": 120,
+      "upgradeMinutes": 40,
       "maintenanceCostPer48h": { "copper": 80, "materials": { "luxury_furniture": 1 } }
     }
   ],
   "roads": [
-    { "segmentLevel": 1, "name": "土路", "buildMinutes": 5, "cost": { "copper": 20, "materials": { "stone": 4 } }, "travelSpeedBonus": 0 },
-    { "segmentLevel": 2, "name": "碎石路", "buildMinutes": 10, "cost": { "copper": 60, "materials": { "stone": 8, "brick": 2 } }, "travelSpeedBonus": 0.1 },
-    { "segmentLevel": 3, "name": "石板路", "buildMinutes": 20, "cost": { "copper": 150, "materials": { "brick": 6, "plank": 4 } }, "travelSpeedBonus": 0.2 }
+    { "segmentLevel": 1, "name": "土路", "buildMinutes": 2, "cost": { "copper": 20, "materials": { "stone": 4 } }, "travelSpeedBonus": 0 },
+    { "segmentLevel": 2, "name": "碎石路", "buildMinutes": 3, "cost": { "copper": 60, "materials": { "stone": 8, "brick": 2 } }, "travelSpeedBonus": 0.1 },
+    { "segmentLevel": 3, "name": "石板路", "buildMinutes": 7, "cost": { "copper": 150, "materials": { "brick": 6, "plank": 4 } }, "travelSpeedBonus": 0.2 }
   ],
   "companions": {
     "maxActive": 1,
     "affectionGainPerInteraction": 5,
-    "interactionCooldownMinutes": 30,
+    "interactionCooldownMinutes": 10,
     "giftBonusMultiplier": 1.5,
     "preferredGifts": ["gift", "wine", "medicine", "fabric"],
     "housingRequirement": { "minLevel": 2, "minComfort": 20 },
