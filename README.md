@@ -21,7 +21,16 @@
 
 ## 配置表
 
-仓库根目录 [config/](./config/)：`crop-growth.json`、`materials.json`、`recipes.json`、`life-progression.json`、`weather-mapping.json`
+| 文件 | 说明 |
+|------|------|
+| [config/](./config/) | 配置目录 |
+| [crop-growth.json](./config/crop-growth.json) | 作物生长周期 |
+| [materials.json](./config/materials.json) | 材料定义与产出 |
+| [recipes.json](./config/recipes.json) | 合成配方 |
+| [life-progression.json](./config/life-progression.json) | 住宅、道路、伴侣 |
+| [weather-mapping.json](./config/weather-mapping.json) | 本地天气映射 |
+
+策划说明见 [game-design/配置数据/README.md](./game-design/配置数据/README.md)。
 
 ## 核心卖点
 

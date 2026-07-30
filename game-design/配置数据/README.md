@@ -8,11 +8,11 @@
 
 | 文件 | 模块 | 说明 |
 |------|------|------|
-| [crop-growth.json](../../../config/crop-growth.json) | 作物生长 | 生长分钟数、节奏模式 |
-| [materials.json](../../../config/materials.json) | 材料 | 分级、基价、开荒掉落 |
-| [recipes.json](../../../config/recipes.json) | 合成 | 设施、配方、批量效率 |
-| [life-progression.json](../../../config/life-progression.json) | 生活 | 住宅、道路、伴侣 |
-| [weather-mapping.json](../../../config/weather-mapping.json) | 事件 | 现实天气 → 游戏标签 |
+| [crop-growth.json](../../config/crop-growth.json) | 作物生长 | 生长分钟数、节奏模式 |
+| [materials.json](../../config/materials.json) | 材料 | 分级、基价、开荒掉落 |
+| [recipes.json](../../config/recipes.json) | 合成 | 设施、配方、批量效率 |
+| [life-progression.json](../../config/life-progression.json) | 生活 | 住宅、道路、伴侣 |
+| [weather-mapping.json](../../config/weather-mapping.json) | 事件 | 现实天气 → 游戏标签 |
 
 ## 待补充配置
 
