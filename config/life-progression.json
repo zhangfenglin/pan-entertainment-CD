@@ -1,0 +1,144 @@
+{
+  "$schema": "life-progression.schema.json",
+  "version": "1.0.0",
+  "homes": [
+    {
+      "level": 0,
+      "name": "漏风草屋",
+      "buildCost": {},
+      "bonuses": {}
+    },
+    {
+      "level": 1,
+      "name": "稳固农舍",
+      "requirements": { "reclaimedTiles": 10 },
+      "buildCost": { "plank": 20, "stone_brick": 10, "copper": 80 },
+      "bonuses": { "staminaMax": 10 }
+    },
+    {
+      "level": 2,
+      "name": "带院农舍",
+      "requirements": { "playerLevel": 5, "reputation": 30 },
+      "buildCost": { "plank": 40, "stone_brick": 25, "hemp_rope": 10, "copper": 200 },
+      "bonuses": { "storageMultiplier": 1.3 }
+    },
+    {
+      "level": 3,
+      "name": "两层农庄",
+      "requirements": { "playerLevel": 10, "reputation": 80 },
+      "buildCost": { "refined_iron": 5, "rough_cloth": 10, "copper": 500 },
+      "bonuses": { "sleepRecovery": 1.0 }
+    },
+    {
+      "level": 4,
+      "name": "田庄大宅",
+      "requirements": { "playerLevel": 15, "companionStage": "partner" },
+      "buildCost": { "refined_iron": 10, "rough_cloth": 20, "silver": 1 },
+      "bonuses": { "workerCap": 1, "cohabitation": true }
+    },
+    {
+      "level": 5,
+      "name": "荒原庄园",
+      "requirements": { "playerLevel": 25, "mainQuestChapter": 3 },
+      "buildCost": { "refined_iron": 20, "rough_cloth": 30, "fence_kit": 5, "silver": 3 },
+      "bonuses": { "moveStaminaReduction": 0.05, "estateOrders": true }
+    }
+  ],
+  "homeMaintenance": {
+    "intervalDays": 7,
+    "cost": { "plank": 2 },
+    "copperAlternative": 15,
+    "penaltyIfMissed": 0.5
+  },
+  "roads": [
+    {
+      "id": "dirt_path",
+      "name": "土路",
+      "costPerTile": { "clay": 3 },
+      "staminaSave": 1
+    },
+    {
+      "id": "gravel_road",
+      "name": "碎石路",
+      "costPerTile": { "stone_brick": 1, "plank": 1 },
+      "staminaSave": 2,
+      "upgradeFrom": "dirt_path",
+      "upgradeRefund": 0.5
+    },
+    {
+      "id": "plank_walkway",
+      "name": "木板道",
+      "costPerTile": { "plank": 2 },
+      "staminaSave": 2,
+      "weatherImmune": true
+    },
+    {
+      "id": "estate_road",
+      "name": "庄园大道",
+      "costPerSegment": { "stone_brick": 2, "refined_iron": 1 },
+      "tilesPerSegment": 3,
+      "staminaSave": 3,
+      "caravanSpeedBonus": 0.1
+    }
+  ],
+  "roadMaintenance": {
+    "intervalDays": 7,
+    "decayIfMissed": 1
+  },
+  "companions": [
+    {
+      "id": "ahe",
+      "name": "阿禾",
+      "role": "apprentice",
+      "appearAt": { "playerLevel": 3 },
+      "giftsPreferred": ["potato", "flour", "bread"],
+      "skills": ["autoHarvest", "bookkeeping"]
+    },
+    {
+      "id": "laozhou",
+      "name": "老周",
+      "role": "blacksmith",
+      "appearAt": { "playerLevel": 6 },
+      "giftsPreferred": ["crude_iron", "refined_iron", "charcoal"],
+      "skills": ["toolRepair", "craftAssist"]
+    },
+    {
+      "id": "suqing",
+      "name": "苏青",
+      "role": "herbalist",
+      "appearAt": { "zone": "herb_area" },
+      "giftsPreferred": ["herb", "basic_potion", "resin"],
+      "skills": ["eventSupport", "herbBonus"]
+    },
+    {
+      "id": "xiaohe",
+      "name": "小禾",
+      "role": "ranger",
+      "appearAt": { "zone": "shrub_mid" },
+      "giftsPreferred": ["beast_hide", "leather", "fence_kit"],
+      "skills": ["roadPatrol", "beastWard"]
+    }
+  ],
+  "relationshipStages": [
+    { "id": "stranger", "minAffection": 0 },
+    { "id": "acquaintance", "minAffection": 10, "requires": "personal_quest_1" },
+    { "id": "friend", "minAffection": 30, "requires": "gifts_3" },
+    { "id": "companion", "minAffection": 60, "requires": "home_level_2" },
+    { "id": "partner", "minAffection": 100, "requires": "home_level_4", "optionalQuest": "bond_quest" }
+  ],
+  "affectionRules": {
+    "giftMatch": { "min": 5, "max": 10 },
+    "giftMismatch": 1,
+    "coopLabor": 3,
+    "storyNode": { "min": 10, "max": 20 },
+    "neglectDecayPer7Days": 2,
+    "floorAtStage": true
+  },
+  "companionAssistCaps": {
+    "autoHarvestEfficiency": 0.8,
+    "craftTimeReduction": 0.15,
+    "roadMaintenanceReduction": 0.2,
+    "dailyAssistLimit": 1,
+    "weeklyCraftAssist": 2
+  }
+}
