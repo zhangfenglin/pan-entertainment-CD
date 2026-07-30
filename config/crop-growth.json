@@ -1,82 +1,119 @@
 {
-  "$schema": "crop-growth.schema.json",
-  "description": "作物生长周期配置（现实时间，无季节限制）",
-  "version": "2.0.0",
-  "timingModel": {
-    "type": "realtime",
-    "offlineGrowth": true,
-    "seasonSystem": false,
-    "plantAnytime": true,
-    "harvestWhenMature": true,
-    "matureCropExpiry": null
-  },
-  "pacePresets": {
-    "casual": { "growthMultiplier": 1.5, "label": "休闲" },
-    "standard": { "growthMultiplier": 1.0, "label": "标准" },
-    "immersive": { "growthMultiplier": 0.75, "label": "沉浸" }
-  },
+  "version": "3.0.0",
+  "description": "作物生长阶段配置（v3 加速节奏）",
+  "timeUnit": "real_minutes",
+  "timeSlotMinutes": 3,
+  "stages": [
+    { "id": "seed", "name": "播种", "durationRatio": 0.05 },
+    { "id": "sprout", "name": "发芽", "durationRatio": 0.15 },
+    { "id": "grow", "name": "生长", "durationRatio": 0.35 },
+    { "id": "mature", "name": "成熟", "durationRatio": 0.35 },
+    { "id": "harvestable", "name": "可收获", "durationRatio": 0.1 }
+  ],
   "crops": [
     {
       "id": "potato",
+      "name": "土豆",
       "tier": 1,
-      "growthMinutes": 60,
-      "growthMinutesMin": 45,
-      "landRequirement": "flat",
-      "waterBonus": 0.1,
-      "fertilizerBonus": 0.15
+      "totalMinutes": 10,
+      "stages": [
+        { "stage": "seed", "minutes": 0.5 },
+        { "stage": "sprout", "minutes": 1.5 },
+        { "stage": "grow", "minutes": 3.5 },
+        { "stage": "mature", "minutes": 3.5 },
+        { "stage": "harvestable", "minutes": 1 }
+      ],
+      "weatherSensitive": false,
+      "notes": "新手首选，约 3 时间槽"
     },
     {
       "id": "radish",
+      "name": "萝卜",
       "tier": 1,
-      "growthMinutes": 60,
-      "growthMinutesMin": 45,
-      "landRequirement": "flat"
+      "totalMinutes": 10,
+      "stages": [
+        { "stage": "seed", "minutes": 0.5 },
+        { "stage": "sprout", "minutes": 1.5 },
+        { "stage": "grow", "minutes": 3.5 },
+        { "stage": "mature", "minutes": 3.5 },
+        { "stage": "harvestable", "minutes": 1 }
+      ],
+      "weatherSensitive": false
     },
     {
       "id": "wheat",
+      "name": "小麦",
       "tier": 2,
-      "growthMinutes": 180,
-      "growthMinutesMin": 120,
-      "landRequirement": "flat",
-      "fertilizerRecommended": true
+      "totalMinutes": 25,
+      "stages": [
+        { "stage": "seed", "minutes": 1 },
+        { "stage": "sprout", "minutes": 4 },
+        { "stage": "grow", "minutes": 9 },
+        { "stage": "mature", "minutes": 9 },
+        { "stage": "harvestable", "minutes": 2 }
+      ],
+      "weatherSensitive": true,
+      "weatherEffect": { "rain": 0.9, "drought": 1.15 }
     },
     {
       "id": "corn",
+      "name": "玉米",
       "tier": 2,
-      "growthMinutes": 180,
-      "growthMinutesMin": 120,
-      "landRequirement": "flat"
+      "totalMinutes": 25,
+      "stages": [
+        { "stage": "seed", "minutes": 1 },
+        { "stage": "sprout", "minutes": 4 },
+        { "stage": "grow", "minutes": 9 },
+        { "stage": "mature", "minutes": 9 },
+        { "stage": "harvestable", "minutes": 2 }
+      ],
+      "weatherSensitive": true,
+      "weatherEffect": { "rain": 0.95, "drought": 1.1 }
     },
     {
       "id": "cotton",
+      "name": "棉花",
       "tier": 3,
-      "growthMinutes": 480,
-      "growthMinutesMin": 360,
-      "landRequirement": "fertilized"
+      "totalMinutes": 45,
+      "stages": [
+        { "stage": "seed", "minutes": 2 },
+        { "stage": "sprout", "minutes": 7 },
+        { "stage": "grow", "minutes": 16 },
+        { "stage": "mature", "minutes": 16 },
+        { "stage": "harvestable", "minutes": 4 }
+      ],
+      "weatherSensitive": true,
+      "weatherEffect": { "rain": 1.05, "drought": 1.2 }
     },
     {
-      "id": "herb",
+      "id": "grape",
+      "name": "葡萄",
       "tier": 3,
-      "growthMinutes": 480,
-      "growthMinutesMin": 360,
-      "landRequirement": "fertilized"
+      "totalMinutes": 45,
+      "stages": [
+        { "stage": "seed", "minutes": 2 },
+        { "stage": "sprout", "minutes": 7 },
+        { "stage": "grow", "minutes": 16 },
+        { "stage": "mature", "minutes": 16 },
+        { "stage": "harvestable", "minutes": 4 }
+      ],
+      "weatherSensitive": true,
+      "weatherEffect": { "rain": 1.0, "drought": 1.15 }
     },
     {
-      "id": "rare_herb",
+      "id": "silk_tree",
+      "name": "桑树",
       "tier": 4,
-      "growthMinutes": 1080,
-      "growthMinutesMin": 840,
-      "landRequirement": "special",
-      "facilityRequired": "herb_garden"
+      "totalMinutes": 90,
+      "stages": [
+        { "stage": "seed", "minutes": 4 },
+        { "stage": "sprout", "minutes": 14 },
+        { "stage": "grow", "minutes": 32 },
+        { "stage": "mature", "minutes": 32 },
+        { "stage": "harvestable", "minutes": 8 }
+      ],
+      "weatherSensitive": true,
+      "weatherEffect": { "rain": 1.0, "drought": 1.1 }
     }
-  ],
-  "helpers": {
-    "autoHarvestWorkerEfficiency": 0.8,
-    "dailyWaterReduction": 0.1,
-    "dailyFertilizerReduction": 0.15
-  },
-  "marketRefresh": {
-    "intervalDays": 7,
-    "note": "商队刷新按现实周，与季节无关"
-  }
+  ]
 }
