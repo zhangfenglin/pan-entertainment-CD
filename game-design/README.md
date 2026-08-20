@@ -57,10 +57,14 @@ game-design/
 劳动 → 土地 → 产出 → 货币/材料 → 工具/基建/生活建设 → 更高效劳动 + 更强归属感
 ```
 
-## 配置表（仓库根目录 `config/`）
+## 配置表（仓库根目录 [`config/`](../config/)）
+
+详细说明见 [配置数据/README.md](./配置数据/README.md)。
 
 | 文件 | 用途 |
 |------|------|
+| [time-economy.json](../config/time-economy.json) | **v3 时间锚点**（时间槽、周期、精力） |
+| [crops.json](../config/crops.json) | 作物产出与价格 |
 | [crop-growth.json](../config/crop-growth.json) | 作物生长周期 |
 | [materials.json](../config/materials.json) | 材料定义与产出 |
 | [recipes.json](../config/recipes.json) | 合成配方 |
@@ -79,4 +83,5 @@ game-design/
 
 - 初稿：2026-07-29
 - 目录重组：2026-07-30
+- **时间经济 v3.1**：2026-07-30 — 基础时间槽 **1 分钟**，联动加速生长与劳动节奏
 - 状态：设计阶段，待原型验证

@@ -1,0 +1,95 @@
+{
+  "$schema": "crops.schema.json",
+  "version": "3.1.0",
+  "description": "作物产出与价格，与 time-economy v3.1（1 分钟时间槽）对齐",
+  "crops": [
+    {
+      "id": "potato",
+      "tier": 1,
+      "growthMinutes": 5,
+      "growthMinutesMin": 4,
+      "yield": 4,
+      "baseSellPrice": 3,
+      "seedCost": 2,
+      "byproduct": { "vine": 1 },
+      "netCopperPerCycle": 10,
+      "copperPerHourPerTile": 120
+    },
+    {
+      "id": "radish",
+      "tier": 1,
+      "growthMinutes": 5,
+      "growthMinutesMin": 4,
+      "yield": 4,
+      "baseSellPrice": 3,
+      "seedCost": 2,
+      "byproduct": { "vine": 1 },
+      "netCopperPerCycle": 10,
+      "copperPerHourPerTile": 120
+    },
+    {
+      "id": "wheat",
+      "tier": 2,
+      "growthMinutes": 12,
+      "growthMinutesMin": 10,
+      "yield": 3,
+      "baseSellPrice": 6,
+      "seedCost": 3,
+      "byproduct": { "straw": 2 },
+      "netCopperPerCycle": 15,
+      "copperPerHourPerTile": 75
+    },
+    {
+      "id": "corn",
+      "tier": 2,
+      "growthMinutes": 12,
+      "growthMinutesMin": 10,
+      "yield": 3,
+      "baseSellPrice": 6,
+      "seedCost": 3,
+      "byproduct": { "straw": 1 },
+      "netCopperPerCycle": 15,
+      "copperPerHourPerTile": 75
+    },
+    {
+      "id": "cotton",
+      "tier": 3,
+      "growthMinutes": 20,
+      "growthMinutesMin": 16,
+      "yield": 2,
+      "baseSellPrice": 16,
+      "seedCost": 6,
+      "byproduct": { "cotton_seed": 1 },
+      "netCopperPerCycle": 26,
+      "copperPerHourPerTile": 78
+    },
+    {
+      "id": "herb",
+      "tier": 3,
+      "growthMinutes": 20,
+      "growthMinutesMin": 16,
+      "yield": 2,
+      "baseSellPrice": 18,
+      "seedCost": 8,
+      "byproduct": { "herb_residue": 1 },
+      "netCopperPerCycle": 28,
+      "copperPerHourPerTile": 84
+    },
+    {
+      "id": "rare_herb",
+      "tier": 4,
+      "growthMinutes": 40,
+      "growthMinutesMin": 32,
+      "yield": 2,
+      "baseSellPrice": 32,
+      "seedCost": 12,
+      "byproduct": { "herb_residue": 2 },
+      "netCopperPerCycle": 52,
+      "copperPerHourPerTile": 78
+    }
+  ],
+  "careBonuses": {
+    "water": { "timeReduction": 0.1, "dailyPerTile": 1 },
+    "fertilizer": { "timeReduction": 0.15, "yieldBonus": 0.1, "dailyPerTile": 1 }
+  }
+}

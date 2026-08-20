@@ -1,49 +1,54 @@
 {
-  "$schema": "materials.schema.json",
-  "version": "1.0.0",
-  "materials": [
-    { "id": "stone", "tier": 0, "tags": ["building"], "basePrice": 2, "stackMax": 99 },
-    { "id": "raw_wood", "tier": 0, "tags": ["building", "fuel"], "basePrice": 2, "stackMax": 99 },
-    { "id": "wild_fiber", "tier": 0, "tags": ["building"], "basePrice": 1, "stackMax": 99 },
-    { "id": "clay", "tier": 0, "tags": ["building", "farm"], "basePrice": 3, "stackMax": 99 },
-    { "id": "copper_ore", "tier": 0, "tags": ["tool"], "basePrice": 6, "stackMax": 50 },
-    { "id": "resin", "tier": 0, "tags": ["consumable"], "basePrice": 8, "stackMax": 50 },
-    { "id": "straw", "tier": 0, "tags": ["fuel", "farm"], "basePrice": 1, "stackMax": 99 },
-    { "id": "vine", "tier": 0, "tags": ["farm"], "basePrice": 1, "stackMax": 99 },
-    { "id": "herb_residue", "tier": 0, "tags": ["farm"], "basePrice": 2, "stackMax": 99 },
-    { "id": "beast_hide", "tier": 0, "tags": ["trade"], "basePrice": 10, "stackMax": 30 },
-    { "id": "beast_bone", "tier": 0, "tags": ["farm"], "basePrice": 5, "stackMax": 30 },
-    { "id": "scrap_metal", "tier": 0, "tags": ["tool"], "basePrice": 4, "stackMax": 30 },
-
-    { "id": "plank", "tier": 1, "tags": ["building"], "basePrice": 6, "stackMax": 50 },
-    { "id": "stone_brick", "tier": 1, "tags": ["building"], "basePrice": 8, "stackMax": 50 },
-    { "id": "hemp_rope", "tier": 1, "tags": ["building"], "basePrice": 10, "stackMax": 50 },
-    { "id": "charcoal", "tier": 1, "tags": ["fuel"], "basePrice": 7, "stackMax": 50 },
-    { "id": "crude_iron", "tier": 1, "tags": ["tool"], "basePrice": 25, "stackMax": 30 },
-
-    { "id": "iron_nail", "tier": 2, "tags": ["building", "tool"], "basePrice": 20, "stackMax": 30 },
-    { "id": "flour", "tier": 2, "tags": ["trade"], "basePrice": 18, "stackMax": 50 },
-    { "id": "rough_cloth", "tier": 2, "tags": ["trade"], "basePrice": 35, "stackMax": 30 },
-    { "id": "basic_fertilizer", "tier": 2, "tags": ["farm", "consumable"], "basePrice": 15, "stackMax": 30 },
-    { "id": "leather", "tier": 2, "tags": ["trade"], "basePrice": 28, "stackMax": 20 },
-
-    { "id": "refined_iron", "tier": 3, "tags": ["tool"], "basePrice": 55, "stackMax": 20 },
-    { "id": "compound_fertilizer", "tier": 3, "tags": ["farm", "consumable"], "basePrice": 40, "stackMax": 20 },
-    { "id": "bread", "tier": 3, "tags": ["trade", "consumable"], "basePrice": 28, "stackMax": 30 },
-    { "id": "basic_potion", "tier": 3, "tags": ["consumable", "trade"], "basePrice": 65, "stackMax": 20 },
-    { "id": "fence_kit", "tier": 3, "tags": ["building", "consumable"], "basePrice": 45, "stackMax": 10 }
-  ],
-  "dumpingPenalty": {
-    "windowDays": 7,
-    "thresholdMultiplier": 3.0,
-    "priceReductionMin": 0.1,
-    "priceReductionMax": 0.25
+  "version": "3.0.0",
+  "description": "材料与产出配置（v3 经济联动）",
+  "currency": {
+    "copper": { "name": "铜币", "baseUnit": 1 },
+    "silver": { "name": "银币", "exchangeRate": 100 },
+    "gold": { "name": "金币", "exchangeRate": 10000 }
   },
-  "reclamationDrops": {
-    "grass": { "wild_fiber": 2, "raw_wood": { "chance": 0.3, "qty": 1 } },
-    "compacted_soil": { "clay": { "chance": 0.5, "qty": 1, "everyNTiles": 2 } },
-    "rocky": { "stone": 3, "copper_ore": { "chance": 0.1, "qty": 1, "zone": "far" } },
-    "root": { "raw_wood": 2, "resin": { "chance": 0.15, "qty": 1 } },
-    "oncePerTile": true
+  "materialTiers": [
+    { "tier": 0, "name": "基础原料", "source": "采集/分解", "sellPriceRange": [1, 4] },
+    { "tier": 1, "name": "初级加工", "source": "T0 合成", "sellPriceRange": [4, 10] },
+    { "tier": 2, "name": "中级加工", "source": "T1 合成", "sellPriceRange": [10, 22] },
+    { "tier": 3, "name": "高级加工", "source": "T2 合成", "sellPriceRange": [22, 45] }
+  ],
+  "materials": [
+    { "id": "wood", "name": "木材", "tier": 0, "basePrice": 2, "stackMax": 999, "sources": ["forest_gather", "tree_fell"] },
+    { "id": "stone", "name": "石料", "tier": 0, "basePrice": 2, "stackMax": 999, "sources": ["quarry", "ruin_scavenge"] },
+    { "id": "herb", "name": "草药", "tier": 0, "basePrice": 3, "stackMax": 999, "sources": ["wild_gather", "farm_byproduct"] },
+    { "id": "fiber", "name": "纤维", "tier": 0, "basePrice": 2, "stackMax": 999, "sources": ["cotton_process", "wild_gather"] },
+    { "id": "clay", "name": "黏土", "tier": 0, "basePrice": 2, "stackMax": 999, "sources": ["riverbank", "wetland"] },
+    { "id": "plank", "name": "木板", "tier": 1, "basePrice": 6, "stackMax": 999, "craftFrom": ["wood"] },
+    { "id": "rope", "name": "麻绳", "tier": 1, "basePrice": 5, "stackMax": 999, "craftFrom": ["fiber", "herb"] },
+    { "id": "brick", "name": "砖块", "tier": 1, "basePrice": 6, "stackMax": 999, "craftFrom": ["clay", "stone"] },
+    { "id": "cloth", "name": "粗布", "tier": 1, "basePrice": 8, "stackMax": 999, "craftFrom": ["fiber"] },
+    { "id": "nail", "name": "铁钉", "tier": 1, "basePrice": 7, "stackMax": 999, "craftFrom": ["stone", "wood"] },
+    { "id": "tool_handle", "name": "工具柄", "tier": 1, "basePrice": 9, "stackMax": 999, "craftFrom": ["plank", "rope"] },
+    { "id": "furniture_part", "name": "家具部件", "tier": 2, "basePrice": 16, "stackMax": 999, "craftFrom": ["plank", "nail"] },
+    { "id": "fabric", "name": "细布", "tier": 2, "basePrice": 18, "stackMax": 999, "craftFrom": ["cloth", "fiber"] },
+    { "id": "medicine", "name": "伤药", "tier": 2, "basePrice": 20, "stackMax": 99, "craftFrom": ["herb", "cloth"] },
+    { "id": "wine", "name": "果酒", "tier": 2, "basePrice": 22, "stackMax": 99, "craftFrom": ["grape", "herb"] },
+    { "id": "silk", "name": "丝绸", "tier": 3, "basePrice": 38, "stackMax": 99, "craftFrom": ["fiber", "fabric"] },
+    { "id": "luxury_furniture", "name": "精制家具", "tier": 3, "basePrice": 42, "stackMax": 99, "craftFrom": ["furniture_part", "fabric"] },
+    { "id": "gift", "name": "伴手礼", "tier": 3, "basePrice": 45, "stackMax": 99, "craftFrom": ["wine", "silk"] }
+  ],
+  "outputs": {
+    "cropByproducts": [
+      { "cropId": "wheat", "materialId": "fiber", "amount": 1, "chance": 0.3 },
+      { "cropId": "cotton", "materialId": "fiber", "amount": 2, "chance": 1.0 },
+      { "cropId": "grape", "materialId": "herb", "amount": 1, "chance": 0.5 }
+    ],
+    "buildingOutputs": [
+      { "buildingId": "sawmill", "materialId": "plank", "ratePerHour": 4, "input": { "wood": 2 } },
+      { "buildingId": "weaving", "materialId": "cloth", "ratePerHour": 3, "input": { "fiber": 3 } },
+      { "buildingId": "winery", "materialId": "wine", "ratePerHour": 2, "input": { "grape": 5, "herb": 1 } }
+    ]
+  },
+  "economyRules": {
+    "sellTax": 0.05,
+    "buyMarkup": 1.15,
+    "overflowDumpWindowHours": 48,
+    "overflowPriceFactor": 0.5,
+    "dailySellCapPerMaterial": 500
   }
 }

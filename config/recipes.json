@@ -1,147 +1,132 @@
 {
-  "$schema": "recipes.schema.json",
-  "version": "1.0.0",
-  "facilities": [
-    { "id": "workbench", "unlockLevel": 1, "queueMax": 1, "buildCost": { "plank": 10, "stone": 5 } },
-    { "id": "furnace", "unlockLevel": 5, "queueMax": 1, "buildCost": { "stone_brick": 15, "charcoal": 5 } },
-    { "id": "mill", "unlockLevel": 6, "queueMax": 1, "buildCost": { "plank": 20, "stone_brick": 10 } },
-    { "id": "loom", "unlockLevel": 8, "queueMax": 1, "buildCost": { "plank": 15, "hemp_rope": 5 } },
-    { "id": "alchemy_table", "unlockLevel": 10, "queueMax": 1, "buildCost": { "stone_brick": 10, "refined_iron": 2 } },
-    { "id": "craft_shop", "unlockLevel": 12, "queueMax": 2, "buildCost": { "refined_iron": 3, "plank": 25 } }
-  ],
+  "version": "3.1.0",
+  "description": "材料合成配方（v3.1 · 1 分钟时间槽，合成以槽为单位）",
+  "timeUnit": "real_minutes",
   "recipes": [
     {
       "id": "craft_plank",
-      "facility": "workbench",
-      "inputs": { "raw_wood": 2 },
-      "outputs": { "plank": 1 },
-      "minutes": 5,
-      "copperFee": 0
+      "name": "制木板",
+      "output": { "materialId": "plank", "amount": 2 },
+      "inputs": [{ "materialId": "wood", "amount": 3 }],
+      "craftMinutes": 1,
+      "station": "workbench",
+      "tier": 1
     },
     {
-      "id": "craft_stone_brick",
-      "facility": "workbench",
-      "inputs": { "stone": 2 },
-      "outputs": { "stone_brick": 1 },
-      "minutes": 5,
-      "copperFee": 0
+      "id": "craft_rope",
+      "name": "搓麻绳",
+      "output": { "materialId": "rope", "amount": 2 },
+      "inputs": [{ "materialId": "fiber", "amount": 4 }],
+      "craftMinutes": 1,
+      "station": "workbench",
+      "tier": 1
     },
     {
-      "id": "craft_hemp_rope",
-      "facility": "workbench",
-      "inputs": { "wild_fiber": 3 },
-      "outputs": { "hemp_rope": 1 },
-      "minutes": 8,
-      "copperFee": 0
+      "id": "craft_brick",
+      "name": "烧砖",
+      "output": { "materialId": "brick", "amount": 2 },
+      "inputs": [{ "materialId": "clay", "amount": 3 }, { "materialId": "stone", "amount": 1 }],
+      "craftMinutes": 2,
+      "station": "kiln",
+      "tier": 1
     },
     {
-      "id": "craft_charcoal",
-      "facility": "workbench",
-      "inputs": { "raw_wood": 1, "straw": 1 },
-      "outputs": { "charcoal": 1 },
-      "minutes": 10,
-      "copperFee": 0
+      "id": "craft_cloth",
+      "name": "织粗布",
+      "output": { "materialId": "cloth", "amount": 1 },
+      "inputs": [{ "materialId": "fiber", "amount": 5 }],
+      "craftMinutes": 2,
+      "station": "weaving",
+      "tier": 1
     },
     {
-      "id": "craft_basic_fertilizer",
-      "facility": "workbench",
-      "inputs": { "vine": 2, "clay": 1, "herb_residue": 1 },
-      "outputs": { "basic_fertilizer": 1 },
-      "minutes": 12,
-      "copperFee": 0
+      "id": "craft_nail",
+      "name": "打铁钉",
+      "output": { "materialId": "nail", "amount": 3 },
+      "inputs": [{ "materialId": "stone", "amount": 2 }, { "materialId": "wood", "amount": 1 }],
+      "craftMinutes": 2,
+      "station": "forge",
+      "tier": 1
     },
     {
-      "id": "smelt_crude_iron",
-      "facility": "furnace",
-      "inputs": { "copper_ore": 2, "charcoal": 2 },
-      "outputs": { "crude_iron": 1 },
-      "minutes": 15,
-      "copperFee": 2
+      "id": "craft_tool_handle",
+      "name": "做工具柄",
+      "output": { "materialId": "tool_handle", "amount": 1 },
+      "inputs": [{ "materialId": "plank", "amount": 2 }, { "materialId": "rope", "amount": 1 }],
+      "craftMinutes": 2,
+      "station": "workbench",
+      "tier": 1
     },
     {
-      "id": "craft_iron_nails",
-      "facility": "furnace",
-      "inputs": { "crude_iron": 1 },
-      "outputs": { "iron_nail": 5 },
-      "minutes": 8,
-      "copperFee": 0
+      "id": "craft_furniture_part",
+      "name": "制家具部件",
+      "output": { "materialId": "furniture_part", "amount": 1 },
+      "inputs": [{ "materialId": "plank", "amount": 4 }, { "materialId": "nail", "amount": 2 }],
+      "craftMinutes": 4,
+      "station": "workshop",
+      "tier": 2
     },
     {
-      "id": "mill_flour",
-      "facility": "mill",
-      "inputs": { "wheat": 2 },
-      "outputs": { "flour": 1 },
-      "minutes": 10,
-      "copperFee": 0,
-      "note": "wheat 为作物 id，收割后转入背包"
+      "id": "craft_fabric",
+      "name": "织细布",
+      "output": { "materialId": "fabric", "amount": 1 },
+      "inputs": [{ "materialId": "cloth", "amount": 2 }, { "materialId": "fiber", "amount": 3 }],
+      "craftMinutes": 4,
+      "station": "weaving",
+      "tier": 2
     },
     {
-      "id": "loom_rough_cloth",
-      "facility": "loom",
-      "inputs": { "cotton": 2, "hemp_rope": 1 },
-      "outputs": { "rough_cloth": 1 },
-      "minutes": 20,
-      "copperFee": 0
+      "id": "craft_medicine",
+      "name": "配伤药",
+      "output": { "materialId": "medicine", "amount": 1 },
+      "inputs": [{ "materialId": "herb", "amount": 4 }, { "materialId": "cloth", "amount": 1 }],
+      "craftMinutes": 3,
+      "station": "workbench",
+      "tier": 2
     },
     {
-      "id": "craft_bread",
-      "facility": "mill",
-      "inputs": { "flour": 1, "charcoal": 1 },
-      "outputs": { "bread": 1 },
-      "minutes": 8,
-      "copperFee": 0
+      "id": "craft_wine",
+      "name": "酿果酒",
+      "output": { "materialId": "wine", "amount": 1 },
+      "inputs": [{ "materialId": "grape", "amount": 6 }, { "materialId": "herb", "amount": 1 }],
+      "craftMinutes": 5,
+      "station": "winery",
+      "tier": 2
     },
     {
-      "id": "craft_refined_iron",
-      "facility": "craft_shop",
-      "inputs": { "crude_iron": 2, "charcoal": 1 },
-      "outputs": { "refined_iron": 1 },
-      "minutes": 25,
-      "copperFee": 5
+      "id": "craft_silk",
+      "name": "制丝绸",
+      "output": { "materialId": "silk", "amount": 1 },
+      "inputs": [{ "materialId": "fiber", "amount": 8 }, { "materialId": "fabric", "amount": 1 }],
+      "craftMinutes": 6,
+      "station": "weaving",
+      "tier": 3
     },
     {
-      "id": "craft_compound_fertilizer",
-      "facility": "workbench",
-      "inputs": { "basic_fertilizer": 2, "beast_bone": 1 },
-      "outputs": { "compound_fertilizer": 1 },
-      "minutes": 15,
-      "copperFee": 3,
-      "unlockReputation": 50
+      "id": "craft_luxury_furniture",
+      "name": "做精制家具",
+      "output": { "materialId": "luxury_furniture", "amount": 1 },
+      "inputs": [{ "materialId": "furniture_part", "amount": 2 }, { "materialId": "fabric", "amount": 1 }],
+      "craftMinutes": 8,
+      "station": "workshop",
+      "tier": 3
     },
     {
-      "id": "brew_basic_potion",
-      "facility": "alchemy_table",
-      "inputs": { "herb": 2, "resin": 1 },
-      "outputs": { "basic_potion": 1 },
-      "minutes": 30,
-      "copperFee": 5
-    },
-    {
-      "id": "craft_fence_kit",
-      "facility": "craft_shop",
-      "inputs": { "plank": 3, "hemp_rope": 1, "iron_nail": 3 },
-      "outputs": { "fence_kit": 1 },
-      "minutes": 20,
-      "copperFee": 0
-    },
-    {
-      "id": "craft_leather",
-      "facility": "workbench",
-      "inputs": { "beast_hide": 2, "resin": 1 },
-      "outputs": { "leather": 1 },
-      "minutes": 18,
-      "copperFee": 0
+      "id": "craft_gift",
+      "name": "打包伴手礼",
+      "output": { "materialId": "gift", "amount": 1 },
+      "inputs": [{ "materialId": "wine", "amount": 1 }, { "materialId": "silk", "amount": 1 }],
+      "craftMinutes": 3,
+      "station": "workbench",
+      "tier": 3
     }
   ],
-  "batchEfficiency": {
-    "batch5": 0.95,
-    "batch10": 0.9,
-    "note": "总时间 = 单次时间 × 数量 × 系数"
-  },
-  "balanceTargets": {
-    "craftPremiumMin": 1.15,
-    "craftPremiumMax": 1.5,
-    "rawSellVsCraftAdvantage": "0.15-0.30",
-    "repairCostRatioOfNewTool": "0.6-0.8"
-  }
+  "craftStations": [
+    { "id": "workbench", "name": "工作台", "unlockLevel": 1 },
+    { "id": "kiln", "name": "窑炉", "unlockLevel": 3 },
+    { "id": "forge", "name": "锻造台", "unlockLevel": 5 },
+    { "id": "weaving", "name": "织机", "unlockLevel": 4 },
+    { "id": "winery", "name": "酒坊", "unlockLevel": 8 },
+    { "id": "workshop", "name": "工坊", "unlockLevel": 10 }
+  ]
 }

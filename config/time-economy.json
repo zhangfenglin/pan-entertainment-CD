@@ -1,0 +1,53 @@
+{
+  "$schema": "time-economy.schema.json",
+  "version": "3.1.0",
+  "description": "统一时间锚点：1 分钟时间槽，劳动/生长/经济周期联动",
+  "timeSlot": {
+    "realMinutes": 1,
+    "label": "时间槽",
+    "note": "所有即时劳动（开荒/播种/收割/修理/交易）最小冷却单位"
+  },
+  "gameDay": {
+    "timeSlots": 20,
+    "realMinutes": 20,
+    "staminaRestoreOnRest": 100,
+    "note": "可选：每 20 现实分钟或玩家手动「歇息」触发一次游戏日结算"
+  },
+  "stamina": {
+    "baseMax": 100,
+    "naturalRegenPer2RealMinutes": 6,
+    "typicalCostPerSlot": { "min": 10, "max": 18 }
+  },
+  "laborActions": {
+    "reclaim_once": { "timeSlots": 1, "stamina": 12 },
+    "plant": { "timeSlots": 1, "stamina": 8 },
+    "harvest": { "timeSlots": 1, "stamina": 8 },
+    "burn_field": { "timeSlots": 2, "stamina": 20 },
+    "tool_repair_light": { "timeSlots": 1, "stamina": 5 },
+    "tool_repair_heavy": { "timeSlots": 3, "stamina": 15 },
+    "trade_at_market": { "timeSlots": 1, "stamina": 3 }
+  },
+  "economyCycle": {
+    "caravanIntervalRealHours": 48,
+    "dumpingWindowRealHours": 48,
+    "maintenanceIntervalRealHours": 48,
+    "loanInterestPerCycle": { "min": 0.05, "max": 0.12 },
+    "label": "商队周期"
+  },
+  "copperAnchor": {
+    "earlyCopperPerActiveHour": { "min": 80, "max": 120 },
+    "midCopperPerActiveHour": { "min": 150, "max": 220 },
+    "timeOpportunityCostPerMinute": 1.5,
+    "note": "机会成本用于合成净利润估算"
+  },
+  "growthPauseEvents": {
+    "rain_delay_minutes": 3,
+    "frost_delay_minutes": 5,
+    "drought_pause_minutes": 3
+  },
+  "pacePresets": {
+    "casual": { "growthMultiplier": 1.3, "laborStaminaMultiplier": 0.9 },
+    "standard": { "growthMultiplier": 1.0, "laborStaminaMultiplier": 1.0 },
+    "intense": { "growthMultiplier": 0.85, "laborStaminaMultiplier": 1.1 }
+  }
+}
